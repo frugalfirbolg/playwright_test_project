@@ -15,19 +15,10 @@ export class LoginPage {
   }
 
   /**
-   * Reusable navigation method to a specific path relative to the base URL.
-   * @param path The relative path to navigate to (e.g., '/login').
-   */
-  async navigate(path: string): Promise<void> {
-    const fullURL = `${this.baseURL}${path}`;
-    await this.page.goto(fullURL);
-  }
-
-  /**
    * login
    */
   public async login() {
-    this.navigate('');
+    await this.page.goto(`${this.baseURL}`);
     const usernameField = this.page.locator('#username');
     const passwordField = this.page.locator('#password');
     const submitButton = this.page.getByRole('button');
