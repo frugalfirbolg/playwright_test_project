@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+import { LoginPage } from './pages/login.page';
+
+test('Implement user authentication is in ToDo and has Feature and High Priority tags', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.login();
+
+  const implementUserAuthentication = page.getByText('Implement user authentication');
+  await expect(implementUserAuthentication).toBeVisible();
+  
+  const parentContainer = implementUserAuthentication.locator('xpath=..');
+  const featureTag = parentContainer.getByText('Feature', {exact: true});
+  const highPriorityTag = parentContainer.getByText('High Priority', {exact: true});
+
+  await expect(featureTag).toBeVisible();
+  await  expect(highPriorityTag).toBeVisible();
+});
+
+test('Fix navigation bug is in ToDo and has Bug tag', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.login();
+
+  const fixNavBugLoc = page.getByText('Fix navigation bug');
+  await expect(fixNavBugLoc).toBeVisible();
+  
+  const parentContainer = fixNavBugLoc.locator('xpath=..');
+  const bugTag = parentContainer.getByText('Bug', {exact: true});
+
+  await  expect(bugTag).toBeVisible();
+});
