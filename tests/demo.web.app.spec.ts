@@ -27,3 +27,17 @@ test('Fix navigation bug is in ToDo and has Bug tag', async ({ page }) => {
     [AppPage.bugTag]
   );
 });
+
+test('Design system updates is In Progress and has Design tag', async ({ page }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.login();
+
+  const appPage = new AppPage(page);
+  
+  await appPage.checkTask(
+    'Design system updates',
+    AppPage.inProgressStatus,
+    [AppPage.designTag]
+  );
+});
+
