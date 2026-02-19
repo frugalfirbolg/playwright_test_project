@@ -16,6 +16,14 @@ export class AppPage {
   }
 
   /**
+   * open
+   * Implemented to open the desired project page
+   */
+  public async openProject(project: string) {
+    await this.page.locator('button', { hasText: project }).click();
+  }
+
+  /**
    * checkTask
     @param task - the title of the task
     @param status - the status column that the task should be in

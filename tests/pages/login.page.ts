@@ -1,6 +1,6 @@
 // pages/login.page.ts
 import { Page } from '@playwright/test';
-import * as params from '../test_data/login.params.json';
+import * as params from '../data/login.params.json';
 
 export class LoginPage {
   readonly page: Page;
