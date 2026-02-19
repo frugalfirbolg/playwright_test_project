@@ -2,14 +2,6 @@ import { expect, Page } from '@playwright/test';
 
 export class AppPage {
   readonly page: Page;
-  public static toDoStatus = 'To Do';
-  public static inProgressStatus = 'In Progress';
-  public static reviewStatus = 'Review';
-  public static doneStatus = 'Done';
-  public static featureTag = 'Feature';
-  public static bugTag = 'Bug';
-  public static highPriorityTag = 'High Priority';
-  public static designTag = 'Design';
 
   constructor(page: Page) {
     this.page = page;
